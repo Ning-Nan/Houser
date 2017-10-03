@@ -317,23 +317,36 @@ class Model {
             
             try! isFileManager.copyItem(atPath: fromUrl!, toPath: srcUrl)
         
+            
+            database = FMDatabase(path : srcUrl)
+            
+            databasePro = DatabaseOperation()
+            
+            loadData()
+            
+            for index in 0...8 {
+                
+                let toUrl = NSHomeDirectory() + "/Documents/" + result[index].streetDetail + ".jpg"
+                let image = UIImage(named:"\(result[index].streetDetail).jpg")
+                let data:Data = UIImageJPEGRepresentation(image!, 1.0)!
+                try? data.write(to: URL(fileURLWithPath: toUrl))
+            }
+            
+            
+        }
+        else{
+        
+        
+            database = FMDatabase(path : srcUrl)
+            
+            databasePro = DatabaseOperation()
+            
+            loadData()
+        
         }
         
 
-        database = FMDatabase(path : srcUrl)
-        
-        databasePro = DatabaseOperation()
-        
-        loadData()
-        
-        for index in 0...8 {
-            
-            let toUrl = NSHomeDirectory() + "/Documents/" + result[index].streetDetail + ".jpg"
-            let image = UIImage(named:"\(result[index].streetDetail).jpg")
-            let data:Data = UIImageJPEGRepresentation(image!, 1.0)!
-            try? data.write(to: URL(fileURLWithPath: toUrl))
-        }
-    
+
     
     }
 }

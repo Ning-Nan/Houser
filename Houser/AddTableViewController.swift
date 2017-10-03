@@ -81,8 +81,12 @@ class AddTableViewController: UITableViewController, UIImagePickerControllerDele
     @IBOutlet weak var botton: UITableViewCell!
     
     
+    @IBOutlet weak var buttonSection: UIButton!
     
     
+    @IBAction func submit(_ sender: Any) {
+        print("sse")
+    }
     
     
  

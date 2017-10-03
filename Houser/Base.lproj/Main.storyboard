@@ -1043,6 +1043,9 @@
                                                     <state key="normal" title="Search">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="submit:" destination="kEF-eM-1ts" eventType="touchUpInside" id="8wP-Q3-NW9"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -1064,11 +1067,13 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Search" id="Iu4-UL-6GB"/>
                     <connections>
+                        <outlet property="ButtonSection" destination="5Ow-oy-GQ5" id="Bud-Kf-GJp"/>
                         <outlet property="Price" destination="1b5-0O-XLe" id="nYC-Mr-yQO"/>
                         <outlet property="addView" destination="dNq-h0-036" id="rmf-aq-VjM"/>
                         <outlet property="addressFiled" destination="gbB-KF-5hg" id="l7o-PZ-0yI"/>
                         <outlet property="bathNo" destination="gQR-jy-LEG" id="ddB-i6-Dd0"/>
                         <outlet property="botton" destination="Obm-7t-j0C" id="fv2-QV-vkU"/>
+                        <outlet property="buttonSection" destination="bSU-cl-TH4" id="rH4-4v-hdZ"/>
                         <outlet property="carSpaceNo" destination="VE0-yc-XgC" id="HOn-9b-cfr"/>
                         <outlet property="descriptionFiled" destination="h8K-r7-1M2" id="DJV-a5-yqO"/>
                         <outlet property="imageView" destination="qFR-jC-l1w" id="8cF-xg-4uk"/>
