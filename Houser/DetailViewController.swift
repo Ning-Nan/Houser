@@ -38,9 +38,8 @@ class DetailViewController: UIViewController {
 
     }
 /*
-     https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View&components=administrative_area:VIC|country:AU&key=AIzaSyD8X2n5jN8x7Rddir7FFglz0laMvNCK9fs
-     */
-
+https://maps.googleapis.com/maps/api/geocode/json?address=1600+adsgddhad+Parkway,+Mountain+View&components=administrative_area:VIC|country:AU&key=AIzaSyD8X2n5jN8x7Rddir7FFglz0laMvNCK9fs|
+*/
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
 

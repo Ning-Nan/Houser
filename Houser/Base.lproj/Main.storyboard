@@ -879,6 +879,9 @@
                                                 <constraint firstItem="5zj-oZ-fJ3" firstAttribute="centerX" secondItem="pw6-ZR-uPp" secondAttribute="centerX" id="IEW-lq-IMu"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="backgroundView" destination="pw6-ZR-uPp" id="rl5-sG-OU2"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -1063,9 +1066,13 @@
                     <connections>
                         <outlet property="Price" destination="1b5-0O-XLe" id="nYC-Mr-yQO"/>
                         <outlet property="addView" destination="dNq-h0-036" id="rmf-aq-VjM"/>
+                        <outlet property="addressFiled" destination="gbB-KF-5hg" id="l7o-PZ-0yI"/>
                         <outlet property="bathNo" destination="gQR-jy-LEG" id="ddB-i6-Dd0"/>
+                        <outlet property="botton" destination="Obm-7t-j0C" id="fv2-QV-vkU"/>
                         <outlet property="carSpaceNo" destination="VE0-yc-XgC" id="HOn-9b-cfr"/>
+                        <outlet property="descriptionFiled" destination="h8K-r7-1M2" id="DJV-a5-yqO"/>
                         <outlet property="imageView" destination="qFR-jC-l1w" id="8cF-xg-4uk"/>
+                        <outlet property="phoneFiled" destination="c8A-eC-NKV" id="2ul-YQ-vzA"/>
                         <outlet property="plusBathNo" destination="QXI-fV-SWE" id="Pod-I4-KSZ"/>
                         <outlet property="plusCarSpaceNo" destination="6XA-CM-UNq" id="Gme-Ly-gxV"/>
                         <outlet property="plusPrice" destination="ypv-Wr-Szj" id="sVV-sM-Eo6"/>

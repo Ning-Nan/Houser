@@ -2,7 +2,7 @@
 
 import UIKit
 
-class AddTableViewController: UITableViewController, UIImagePickerControllerDelegate,UINavigationControllerDelegate {
+class AddTableViewController: UITableViewController, UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITextFieldDelegate{
     
     
     //data source
@@ -78,6 +78,7 @@ class AddTableViewController: UITableViewController, UIImagePickerControllerDele
     @IBOutlet weak var reduceCarSpaceNo: UIButton!
     
     
+    @IBOutlet weak var botton: UITableViewCell!
     
     
     
@@ -89,6 +90,9 @@ class AddTableViewController: UITableViewController, UIImagePickerControllerDele
     
     //textFiled as picker
     @IBOutlet weak var suburbFiled: UITextField!
+    @IBOutlet weak var addressFiled: UITextField!
+    @IBOutlet weak var descriptionFiled: UITextField!
+    @IBOutlet weak var phoneFiled: UITextField!
 
 
     
@@ -151,16 +155,42 @@ class AddTableViewController: UITableViewController, UIImagePickerControllerDele
     }
     
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
     
+    
+    func textFieldDidBeginEditing(_ textField: UITextField)
+    {
+        
+        UIView.animate(withDuration: 0.4, animations: {
+            
+            self.view.frame.origin.y = -220
+            
+        })
+
+    }
     
 
+    
+    //输入框编辑完成以后，将视图恢复到原始状态
+    func textFieldDidEndEditing( _ textField: UITextField)
+    {
+        self.view.frame = CGRect(x:0, y:0, width: self.view.frame.size.width,
+                                     height: self.view.frame.size.height)
+    }
+    
+
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
+        suburbFiled.delegate = self
+        addressFiled.delegate = self
+        descriptionFiled.delegate = self
+        phoneFiled.delegate = self
 
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
