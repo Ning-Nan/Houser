@@ -141,12 +141,12 @@ class AddTableViewController: UITableViewController, UIImagePickerControllerDele
     @IBAction func petsAllowSwitch(_ sender: UISwitch) {
         if(sender.isOn == true)
         {
-            DataModel.dataModel.petsAllowed = true
+            addDataModel.adddataModel.petsAllowed = true
         }
             
         else
         {
-            DataModel.dataModel.petsAllowed = false
+            addDataModel.adddataModel.petsAllowed = false
         }
     }
     
@@ -158,8 +158,6 @@ class AddTableViewController: UITableViewController, UIImagePickerControllerDele
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        Model.model.delegate = databasePro
-   
         
 
         
@@ -167,9 +165,7 @@ class AddTableViewController: UITableViewController, UIImagePickerControllerDele
     
     override func viewWillAppear(_ animated: Bool) {
         
-        Model.model.readSuburb()
-        self.addView.reloadData()
-        Model.model.landlordMode = false
+        Model.model.landlordMode = true
     }
     
     override func didReceiveMemoryWarning() {

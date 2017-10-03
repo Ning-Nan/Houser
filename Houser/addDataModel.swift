@@ -120,7 +120,8 @@ class addDataModel
         
         else{
         
-            return String(currentRoomNo + 1)
+            currentRoomNo = currentRoomNo + 1
+            return String(currentRoomNo)
         }
     }
     
@@ -135,7 +136,8 @@ class addDataModel
         else
         {
         
-            return String(currentRoomNo - 1)
+            currentRoomNo = currentRoomNo - 1
+            return String(currentRoomNo)
         
         }
         
@@ -153,7 +155,9 @@ class addDataModel
             
         else{
             
-            return String(currentBathNo + 1)
+            currentBathNo = currentBathNo + 1
+            
+            return String(currentBathNo)
         }
     }
     
@@ -166,8 +170,8 @@ class addDataModel
             
         else
         {
-            
-            return String(currentBathNo - 1)
+            currentBathNo = currentBathNo - 1
+            return String(currentBathNo)
             
         }
         
@@ -185,8 +189,9 @@ class addDataModel
         }
             
         else{
+            currentCarSpaceNo = currentCarSpaceNo + 1
             
-            return String(currentCarSpaceNo + 1)
+            return String(currentCarSpaceNo)
         }
     }
     
@@ -199,8 +204,9 @@ class addDataModel
             
         else
         {
+            currentCarSpaceNo = currentCarSpaceNo - 1
             
-            return String(currentCarSpaceNo - 1)
+            return String(currentCarSpaceNo)
             
         }
         
