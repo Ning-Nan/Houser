@@ -70,7 +70,7 @@ class OwningTableController: UIViewController,UITableViewDataSource, UITableView
         
         let imageData = NSData(contentsOfFile: imagePath.appending(Model.model.own[tempIndex].streetDetail + ".jpg"))
         
-        print(imagePath.appending(Model.model.own[tempIndex].streetDetail + ".jpg"))
+        
         cell.mainImage.image = UIImage(data: imageData! as Data)
         
         //cell.mark.setImage(UIImage(named:"delete.png"), for: .normal)
