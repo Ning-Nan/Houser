@@ -99,6 +99,19 @@ class AddTableViewController: UITableViewController, UIImagePickerControllerDele
 
         }
         
+
+        for index in Model.model.own{
+        
+            if(index.streetDetail == addressFiled.text){
+            
+                createAllert(title: "Address is taken!", message: "This address is taken in database right now.")
+                
+                return
+            
+            }
+        
+        
+        }
         let message = addDataModel.adddataModel.addCheck(suburb: suburbFiled.text!, street: addressFiled.text!, description: descriptionFiled.text!, phone: phoneFiled.text!)
         
         if (message == ""){

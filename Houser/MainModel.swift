@@ -354,10 +354,48 @@ class Model {
     
     
     
-    func addProperty(){
+    func addProperty(address : String, description : String, suburb : String, phone : String){
+        
+        var pets : Int
+        if(addDataModel.adddataModel.petsAllowed == true){
+        
+            pets = 1
+        
+        }
+        else
+        {
+        
+            pets = 0
+        
+        }
+        let query : String = "insert into house (address,suburb,postcode,price,bathno,roomno,carspace,phone,pets,description,favourite,owning,xlocation,ylocation) values ("
+            + "'\(address)',"
+            + "'\(suburb)',"
+            + "'\(addDataModel.adddataModel.postCode)',"
+            + "'\(addDataModel.adddataModel.currentPrice)',"
+            + "'\(addDataModel.adddataModel.currentBathNo)',"
+            + "'\(addDataModel.adddataModel.currentRoomNo)',"
+            + "'\(addDataModel.adddataModel.currentCarSpaceNo)',"
+            + "'\(phone)',"
+            + "'\(pets)',"
+            + "'\(description)',"
+            + "'0',"
+            + "'1',"
+            + "'\(addDataModel.adddataModel.xlocation)',"
+            + "'\(addDataModel.adddataModel.ylocation)')"
+
+
+
+
+
+
+
+
+        
+        
     
     
-    
+    //insert into house (address,suburb,postcode,price,bathno,roomno,carspace,phone,pets,description,favourite,owning,xlocation,ylocation) values ('',
     
     
     
