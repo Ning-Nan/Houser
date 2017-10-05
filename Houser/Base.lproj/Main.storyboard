@@ -1067,7 +1067,6 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Search" id="Iu4-UL-6GB"/>
                     <connections>
-                        <outlet property="ButtonSection" destination="5Ow-oy-GQ5" id="Bud-Kf-GJp"/>
                         <outlet property="Price" destination="1b5-0O-XLe" id="nYC-Mr-yQO"/>
                         <outlet property="addView" destination="dNq-h0-036" id="rmf-aq-VjM"/>
                         <outlet property="addressFiled" destination="gbB-KF-5hg" id="l7o-PZ-0yI"/>

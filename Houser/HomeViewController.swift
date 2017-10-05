@@ -2,7 +2,7 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-
+    
     @IBOutlet weak var Tenant: UIButton!
     @IBOutlet weak var Landlord: UIButton!
     override func viewDidLoad() {
@@ -20,20 +20,22 @@ class HomeViewController: UIViewController {
         
         print(imagePath)
         Model.model.firstRun()
-
+        
+        
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
-
+    
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
-
+    
+    
 }

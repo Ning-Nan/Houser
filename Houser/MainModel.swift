@@ -349,4 +349,22 @@ class Model {
 
     
     }
+    
+    
+    
+    
+    
+    func addProperty(){
+    
+    
+    
+    
+    
+    
+    
+    
+    }
+    
+    
+    
 }

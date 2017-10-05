@@ -48,7 +48,7 @@ class AddTableViewController: UITableViewController, UIImagePickerControllerDele
         //present image
         let image:UIImage!
         image = info[UIImagePickerControllerOriginalImage] as! UIImage!
-        imageView.image = UIImage(named: "")
+        
         imageView.image = image
         
         picker.dismiss(animated: true, completion: {() -> Void in})
@@ -85,7 +85,39 @@ class AddTableViewController: UITableViewController, UIImagePickerControllerDele
     
     
     @IBAction func submit(_ sender: Any) {
-        print("sse")
+
+        if (imageView.image == UIImage(named: "camera.png")){
+        
+            createAllert(title: "No Image!", message: "Please pick up one photo")
+            return
+        }
+        
+        if(descriptionFiled.text == "" || addressFiled.text == "" || phoneFiled.text == ""||suburbFiled.text == ""){
+           
+            createAllert(title: "Filed is empty!", message: "Please make sure no filed is empty")
+            return
+
+        }
+        
+        let message = addDataModel.adddataModel.addCheck(suburb: suburbFiled.text!, street: addressFiled.text!, description: descriptionFiled.text!, phone: phoneFiled.text!)
+        
+        if (message == ""){
+            
+            //add property
+            
+        
+        }else{
+        
+        
+            createAllert(title: "Error", message: message)
+        
+        
+        }
+        
+    
+    
+    
+    
     }
     
     
@@ -200,10 +232,24 @@ class AddTableViewController: UITableViewController, UIImagePickerControllerDele
     override func viewWillAppear(_ animated: Bool) {
         
         Model.model.landlordMode = true
+        addDataModel.adddataModel.reset()
+        self.tableView.reloadData()
+        
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+        
+        
+    }
+    
+    //make an allert
+    func createAllert(title:String, message:String){
+        let alert = UIAlertController(title:title, message:message, preferredStyle:UIAlertControllerStyle.alert)
+        
+        alert.addAction(UIAlertAction(title:"OK", style:UIAlertActionStyle.default,handler:{(action) in alert.dismiss(animated: true, completion: nil)}))
+        
+        self.present(alert, animated: true,completion: nil)
         
         
     }

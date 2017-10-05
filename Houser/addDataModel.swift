@@ -18,7 +18,9 @@ class addDataModel
     var suburb:String
     
     var petsAllowed:Bool
-    
+    var xlocation : Double
+    var ylocation : Double
+    var postCode : Int
     
     private init() {
         
@@ -28,12 +30,14 @@ class addDataModel
         currentBathNo = 0
         currentCarSpaceNo = 0
         
-        suburb = "Melbourne Region"
+        suburb = ""
         
         petsAllowed = false
+        xlocation = 0.00000
+        ylocation = 0.00000
+        postCode = 0000
         
     }
-    
     
     
     func plusPrice( LabelText: String) -> String{
@@ -213,6 +217,228 @@ class addDataModel
         
         
     }
+    
+    
+    func reset()
+    {
+    
+        currentPrice = 0
+        
+        currentRoomNo = 0
+        currentBathNo = 0
+        currentCarSpaceNo = 0
+        
+        suburb = ""
+        
+        petsAllowed = false
+        xlocation = 0.00000
+        ylocation = 0.00000
+        postCode = 0000
+        
+    
+    }
+    
+    func addCheck(suburb : String, street: String, description: String, phone: String) -> String{
+        
+        if (currentPrice == 0){
+        
+            return "Price cannot be $0!"
+        
+        }
+        
+        if(currentBathNo == 0 || currentRoomNo == 0 || currentBathNo == 0){
+        
+        
+            return "You should at least have one room!"
+        
+        }
+        
+        if (suburb.characters.count > 20 || suburb.characters.count < 3){
+        
+            return "Suburb name length error!"
+        
+        }
+        
+        if (description.characters.count > 700) {
+        
+            return "Description is too long!"
+        
+        }
+        
+        if(phone.characters.count != 10){
+        
+            return "Phone number length error!"
+        
+        
+        }
+        
+        if(street.characters.count > 50 || street.characters.count < 5){
+        
+        
+            return "Street length error!"
+        }
+        
+        self.postCode = 0000
+        self.xlocation = 0.00000
+        self.ylocation = 0.00000
+
+        
+        
+        json(address: street, suburb: suburb)
+        
+        if(self.postCode == 0000 || self.xlocation == 0.00000 || self.ylocation == 0.00000)
+        {
+        
+            return "address or suburb is error! Please check your input!"
+        
+        }
+       
+        return ""
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    func json(address : String, suburb : String)
+    {
+        
+        
+        let BASE_URL : String = "https://maps.googleapis.com/maps/api/geocode/json?address="
+
+        let LIMIT : String = "&components=administrative area:VIC|country:AU"
+        let KEY :String = "&key=AIzaSyD8X2n5jN8x7Rddir7FFglz0laMvNCK9fs"
+        
+        
+        let findAddress : String = BASE_URL + address + "," + suburb + LIMIT + KEY
+        
+        
+        let url = URL(string: findAddress.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!)
+        let task = URLSession.shared.dataTask(with: url!) { (data, response, error) in
+            if error != nil
+            {
+                
+                print("error")
+            }
+            else
+            {
+                
+                if let content = data
+                {
+                    
+                    
+                    do
+                    {
+                        
+                        
+                        let myJson = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
+                        
+                        if let result = myJson["results"] as? NSArray                        {
+                            
+                            
+                            
+                            for key in result {
+                                
+                                if let property = key as? NSDictionary
+                                {
+                                    
+                                    if let location = property["geometry"] as? NSDictionary
+                                    {
+                                        
+                                        if let xy = location["location"] as? NSDictionary
+                                        {
+                                            
+                                            if let x = xy["lat"] as? Double{
+                                                
+                                                self.xlocation = x
+                                            }
+                                            
+                                            if let y = xy["lng"] as? Double{
+                                                
+                                                self.ylocation = y
+                                                
+                                            }
+                                            
+                                        }
+                                        
+                                    }
+                                    
+                                    if let detail = property["address_components"] as? NSArray
+                                    {
+                                        if let components = detail.lastObject {
+                                            
+                                            if let parts = components as? NSDictionary
+                                            {
+                                                if let postCode = parts["short_name"]
+                                                    
+                                                {
+                                                    
+                                                    let postcode = (postCode as? NSString)?.integerValue
+                                                    self.postCode = postcode!
+                                                    break
+                                                    
+                                                }
+                                            }
+                                            
+                                            
+                                        }
+                                        
+                                        
+                                    }
+                                    
+                                    
+                                }
+                            }
+                            
+                            
+                        }
+                        
+                        
+                    }catch
+                    {
+                        
+                    }
+                    
+                }
+            }
+            
+            
+        }
+        
+        task.resume()
+        
+        
+        
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
