@@ -325,7 +325,7 @@ class addDataModel
         
         let BASE_URL : String = "https://maps.googleapis.com/maps/api/geocode/json?address="
         
-        let LIMIT : String = "&components=administrative area:VIC|country:AU"
+        let LIMIT : String = "&components=administrative_area:VIC|country:AU"
         let KEY :String = "&key=AIzaSyD8X2n5jN8x7Rddir7FFglz0laMvNCK9fs"
         
         
