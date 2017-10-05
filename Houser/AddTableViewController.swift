@@ -116,12 +116,17 @@ class AddTableViewController: UITableViewController, UIImagePickerControllerDele
         
         if (message == ""){
             
-            //add property
+            Model.model.addProperty(address: addressFiled.text!, description: descriptionFiled.text!, suburb: suburbFiled.text!, phone: phoneFiled.text!, image: imageView.image!)
+            
+            complete(title: "Success!", message: "Now your property has been added to database.")
+            self.navigationController?.popViewController(animated: true)
             
         
         }else{
         
         
+            print(addDataModel.adddataModel.xlocation)
+            
             createAllert(title: "Error", message: message)
         
         
@@ -266,6 +271,25 @@ class AddTableViewController: UITableViewController, UIImagePickerControllerDele
         
         
     }
+    
+    func complete(title:String, message:String){
+        // Create the alert controller
+        let alertController = UIAlertController(title: "Title", message: "Message", preferredStyle: .alert)
+        
+        // Create the actions
+        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) {
+            UIAlertAction in
+            self.navigationController?.popViewController(animated: true)
+        }
+        
+        // Add the actions
+        alertController.addAction(okAction)
+        
+        // Present the controller
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+
     
     
 }

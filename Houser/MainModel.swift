@@ -129,6 +129,7 @@ class Model {
         }
         
 
+        query = query + " ORDER BY price"
         let rs = delegate?.queryDatabase(operation: query)
         
         while(rs?.next() == true){
@@ -167,7 +168,7 @@ class Model {
         }
         
         let favouriteRs = delegate?.queryDatabase(operation: "Select * from house where favourite = 1")
-        
+               query = query + " ORDER BY price"
         while(favouriteRs?.next() == true){
             
             let house = House()
@@ -202,7 +203,7 @@ class Model {
         }
         
         
-        let resultRs = delegate?.queryDatabase(operation: "Select * from house where owning = 1")
+        let resultRs = delegate?.queryDatabase(operation: "Select * from house where owning = 1 order by price")
         
         while(resultRs?.next() == true){
             
@@ -354,7 +355,7 @@ class Model {
     
     
     
-    func addProperty(address : String, description : String, suburb : String, phone : String){
+    func addProperty(address : String, description : String, suburb : String, phone :String, image : UIImage){
         
         var pets : Int
         if(addDataModel.adddataModel.petsAllowed == true){
@@ -384,10 +385,15 @@ class Model {
             + "'\(addDataModel.adddataModel.xlocation)',"
             + "'\(addDataModel.adddataModel.ylocation)')"
 
-
-
-
-
+        if(delegate?.modifyDatabase(operation: query) == false){
+        
+        
+            print("add failed!")
+        
+        }
+        let toUrl = imagePath + address + ".jpg"
+        let data:Data = UIImageJPEGRepresentation(image, 1.0)!
+        try? data.write(to: URL(fileURLWithPath: toUrl))
 
 
 

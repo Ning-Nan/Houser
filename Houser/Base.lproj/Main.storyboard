@@ -1040,7 +1040,7 @@
                                                     <rect key="frame" x="0.0" y="0.33333333333333215" width="414" height="48"/>
                                                     <color key="backgroundColor" red="0.85490196080000003" green="0.1450980392" blue="0.10980392160000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                                    <state key="normal" title="Search">
+                                                    <state key="normal" title="Add">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
@@ -1065,7 +1065,7 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Search" id="Iu4-UL-6GB"/>
+                    <navigationItem key="navigationItem" title="Add Property" id="Iu4-UL-6GB"/>
                     <connections>
                         <outlet property="Price" destination="1b5-0O-XLe" id="nYC-Mr-yQO"/>
                         <outlet property="addView" destination="dNq-h0-036" id="rmf-aq-VjM"/>
