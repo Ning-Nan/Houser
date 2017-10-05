@@ -369,14 +369,12 @@ class addDataModel
                                             
                                             if let x = xy["lat"] as? Double{
                                                 addDataModel.adddataModel.xlocation = x;
-                                                print(x)
-                                                print(self.xlocation)
+                                         
                                             }
                                             
                                             if let y = xy["lng"] as? Double{
                                                 addDataModel.adddataModel.ylocation = y
-                                                print(y)
-                                                print(self.ylocation)
+                                           
                                                 
                                             }
                                             
@@ -396,8 +394,7 @@ class addDataModel
                                                     
                                                     let postcode = (postCode as? NSString)?.integerValue
                                                     addDataModel.adddataModel.postCode = postcode!
-                                                    print(postcode!)
-                                                    print(self.postCode)
+                                                 
                                                     break
                                                     
                                                 }

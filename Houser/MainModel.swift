@@ -298,8 +298,7 @@ class Model {
         let homeDirectory = NSHomeDirectory()
         let srcUrl = homeDirectory + "/Documents/" + detail + ".jpg"
         
-        print(srcUrl)
-        try! fileManager.removeItem(atPath: srcUrl)
+                try! fileManager.removeItem(atPath: srcUrl)
         
         
     

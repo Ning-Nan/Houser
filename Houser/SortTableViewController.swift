@@ -136,6 +136,8 @@ class SortTableViewController: UITableViewController, UIPickerViewDelegate,UIPic
     
     override func viewWillAppear(_ animated: Bool) {
     
+        reset()
+        DataModel.dataModel.reset()
         Model.model.readSuburb()
         self.sortView.reloadData()
         Model.model.landlordMode = false
@@ -145,6 +147,18 @@ class SortTableViewController: UITableViewController, UIPickerViewDelegate,UIPic
         super.didReceiveMemoryWarning()
         
         
+    }
+    
+    func reset(){
+        
+        minPrice.text = "$0"
+        maxPrice.text = "$2000"
+        roomNo.text = "Any"
+        bathNo.text = "Any"
+        carSpaceNo.text = "Any"
+    
+    
+    
     }
     
     

@@ -10,7 +10,21 @@ class HouserUITests: XCTestCase {
         continueAfterFailure = false
       
         XCUIApplication().launch()
+        
+        
+        
+        
+        let isFileManager = FileManager.default
+        
+        let srcUrl = NSHomeDirectory() + "/Documents/"
+        let exist = isFileManager.fileExists(atPath: srcUrl)
+        
+        if(exist == true){
+            
+            
+            try! isFileManager.removeItem(atPath: srcUrl)
 
+        }
     }
     
     override func tearDown() {
@@ -18,15 +32,17 @@ class HouserUITests: XCTestCase {
         super.tearDown()
     }
     
-    func testPicker() {
+    func testSearch() {
 
     let app = XCUIApplication()
+        
+        app.buttons["Tenant"].tap()
         let buttonNumber = app.buttons.count
         let labelNumber = app.staticTexts.count
          let tablesQuery = app.tables
         let cellCount = app.cells.count
         
-        XCTAssertEqual(buttonNumber, 11)
+        XCTAssertEqual(buttonNumber, 15)
         XCTAssertEqual(labelNumber, 12)
         XCTAssertEqual(app.staticTexts.element(matching: .any, identifier: "$0").label, "$0")
         XCTAssertEqual(cellCount, 13)
@@ -43,9 +59,10 @@ class HouserUITests: XCTestCase {
         
     }
     
-    func testAlert() {
+    func testResult() {
         let app = XCUIApplication()
-        
+        app.buttons["Tenant"].tap()
+
         let tablesQuery = XCUIApplication().tables
         
         
@@ -66,7 +83,8 @@ class HouserUITests: XCTestCase {
     func testResultAndFavourite(){
     
         let app = XCUIApplication()
-        
+        app.buttons["Tenant"].tap()
+
         app.buttons["Search"].tap()
         sleep(2)
 
@@ -94,14 +112,15 @@ class HouserUITests: XCTestCase {
     func testDetailScreen(){
         
         let app = XCUIApplication()
+        app.buttons["Tenant"].tap()
+
   
         app.tables.cells.buttons["Search"].tap()
         app.tables.cells.staticTexts.element(matching: .staticText, identifier: "$200").tap()
         XCTAssert(app.navigationBars.staticTexts["Detail"].exists)
         XCTAssert(app.staticTexts["$200"].exists)
-        XCTAssert(app.staticTexts["15 Docklands Dr CBD 3000"].exists)
-        XCTAssert(app.buttons["Call Landlord"].exists)
-        XCTAssert(app.buttons["Text Landlord"].exists)
+        XCTAssert(app.staticTexts["2 McGoun Street Richmond 3121"].exists)
+        XCTAssert(app.buttons["Contact Landlord"].exists)
 
         
         app.navigationBars["Detail"].buttons["List"].tap()

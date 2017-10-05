@@ -38,6 +38,25 @@ class DataModel
         
     }
     
+    func reset()
+    {
+    
+        currentMinPrice = 0
+        currentMaxPrice = 2000
+        
+        currentRoomNo = 0
+        currentBathNo = 0
+        currentCarSpaceNo = 0
+        
+        suburb = "Melbourne Region"
+        
+        petsAllowed = false
+        
+        suburbOptions = ["Melbourne Region"]
+
+    
+    
+    }
     
     
     //min price will be always less than max price and cannot lower $0
@@ -48,7 +67,8 @@ class DataModel
         var minPriceString = minLabelText
         var maxPriceString = maxLabelText
         
-        if let i = minPriceString.characters.index(of: "$") {        minPriceString.remove(at: i)
+        if let i = minPriceString.characters.index(of: "$") {
+            minPriceString.remove(at: i)
         }
         
         if let j = maxPriceString.characters.index(of: "$"){
@@ -58,7 +78,8 @@ class DataModel
         
         minPrice = Int(minPriceString)!
         maxPrice = Int(maxPriceString)!
-        
+        currentMinPrice = minPrice
+        currentMaxPrice = maxPrice
         if(minPrice >= maxPrice) {
             
             currentMinPrice = minPrice
@@ -90,6 +111,7 @@ class DataModel
         }
         
         minPrice = Int(minPriceString)!
+        currentMinPrice = minPrice
         
         if (minPrice == 0) {
             
@@ -122,6 +144,7 @@ class DataModel
         
         maxPrice = Int(maxPriceString)!
         
+        currentMaxPrice = maxPrice
         if(maxPrice == 2000){
             currentMaxPrice = 2000
             return maxLabelText
@@ -166,6 +189,8 @@ class DataModel
         maxPrice = Int(maxPriceString)!
         minPrice = Int(minPriceString)!
         
+        currentMaxPrice = maxPrice
+        currentMinPrice = minPrice
         
         
         
