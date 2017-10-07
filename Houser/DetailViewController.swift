@@ -3,7 +3,7 @@ import UIKit
 import MapKit
 
 class DetailViewController: UIViewController {
-
+    
     
     
     @IBOutlet weak var mainImage: UIImageView!
@@ -19,7 +19,7 @@ class DetailViewController: UIViewController {
     
     @IBOutlet weak var mark: UIButton!
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         showDetail()
@@ -35,14 +35,11 @@ class DetailViewController: UIViewController {
         annotation.title = Model.model.current[Model.model.selected].streetDetail
         map.addAnnotation(annotation)
         
-
+        
     }
-/*
-https://maps.googleapis.com/maps/api/geocode/json?address=1600+adsgddhad+Parkway,+Mountain+View&components=administrative_area:VIC|country:AU&key=AIzaSyD8X2n5jN8x7Rddir7FFglz0laMvNCK9fs|
-*/
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-
+        
     }
     
     
@@ -55,9 +52,7 @@ https://maps.googleapis.com/maps/api/geocode/json?address=1600+adsgddhad+Parkway
             
         case true:
             
-            removeFunc()
-            //
-            
+            removeFunc()            
             
             
         case false:
@@ -78,8 +73,8 @@ https://maps.googleapis.com/maps/api/geocode/json?address=1600+adsgddhad+Parkway
                 mark.setImage(UIImage(named:"mark.png"), for: .normal)
                 Model.model.current[tempIndex].favourite = true
             }
-
-        
+            
+            
         }
         
     }
@@ -92,7 +87,7 @@ https://maps.googleapis.com/maps/api/geocode/json?address=1600+adsgddhad+Parkway
         case true:
             
             mark.setImage(UIImage(named:"delete.png"), for: .normal)
-
+            
             break
             
         case false:
@@ -106,9 +101,9 @@ https://maps.googleapis.com/maps/api/geocode/json?address=1600+adsgddhad+Parkway
                 
                 mark.setImage(UIImage(named:"unmark.png"), for: .normal)
             }
-
+            
         }
-       
+        
         let imageData = NSData(contentsOfFile: imagePath.appending(Model.model.current[tempIndex].streetDetail + ".jpg"))
         
         mainImage.image = UIImage(data: imageData! as Data)
@@ -122,7 +117,7 @@ https://maps.googleapis.com/maps/api/geocode/json?address=1600+adsgddhad+Parkway
         
         carNo.text = String (Model.model.current[tempIndex].carSpaceNo)
         description11.text = Model.model.current[tempIndex].description
-    
+        
     }
     
     
@@ -159,14 +154,14 @@ https://maps.googleapis.com/maps/api/geocode/json?address=1600+adsgddhad+Parkway
         action.addAction(cancelAction)
         
         self.present(action, animated: true, completion: nil)
-
+        
     }
     
     
     func removeFunc() {
-    
-    
-    
+        
+        
+        
         let action = UIAlertController(title : "Are you sure?", message: "The property will be deleted from database.",preferredStyle : UIAlertControllerStyle.actionSheet)
         
         let deleteAction = UIAlertAction(title: "Delete", style: UIAlertActionStyle.destructive)
@@ -184,12 +179,12 @@ https://maps.googleapis.com/maps/api/geocode/json?address=1600+adsgddhad+Parkway
         action.addAction(cancelAction)
         
         self.present(action, animated: true, completion: nil)
-    
-    
+        
+        
     }
     
     
     
     
- 
+    
 }

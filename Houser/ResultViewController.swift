@@ -9,9 +9,9 @@ class ResultViewController: UIViewController, UITableViewDataSource, UITableView
     override func viewDidLoad() {
         
         super.viewDidLoad()
-
+        
         Model.model.delegate = databasePro
-
+        
         self.tabBarController?.navigationItem.title = "List"
         
     }
@@ -31,7 +31,7 @@ class ResultViewController: UIViewController, UITableViewDataSource, UITableView
         if(Model.model.result.isEmpty){
             createAllert(title: "Result Not Found", message: "No result for this search!")
         }
-
+        
         self.resultTable.reloadData()
     }
     
@@ -61,13 +61,13 @@ class ResultViewController: UIViewController, UITableViewDataSource, UITableView
         let cell = tableView.dequeueReusableCell(withIdentifier: "resultCell", for: indexPath) as! CustomTableViewCell
         
         let tempIndex : Int = indexPath.row
-
+        
         
         let imageData = NSData(contentsOfFile: imagePath.appending(Model.model.result[tempIndex].streetDetail + ".jpg"))
         
         cell.mainImage.image = UIImage(data: imageData! as Data)
         
- 
+        
         if(Model.model.result[tempIndex].favourite == true){
             
             cell.mark.setImage(UIImage(named:"mark.png"), for: .normal)
@@ -96,12 +96,12 @@ class ResultViewController: UIViewController, UITableViewDataSource, UITableView
         
         
         return cell
-
+        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         Model.model.selected = indexPath.row
     }
-        
+    
 }
