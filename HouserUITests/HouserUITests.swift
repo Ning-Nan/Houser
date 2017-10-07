@@ -16,26 +16,37 @@ class HouserUITests: XCTestCase {
         
         let isFileManager = FileManager.default
         
-        let srcUrl = NSHomeDirectory() + "/Documents/"
-        let exist = isFileManager.fileExists(atPath: srcUrl)
+        let srcUrl = NSHomeDirectory() + "/Documents"
+        let fileArray = isFileManager.subpaths(atPath: srcUrl)
         
-        if(exist == true){
+        for fn in fileArray!{
             
             
-            try! isFileManager.removeItem(atPath: srcUrl)
-
+            try! isFileManager.removeItem(atPath: srcUrl + "/\(fn)")
+            
         }
     }
     
     override func tearDown() {
        
+        let isFileManager = FileManager.default
+        
+        let srcUrl = NSHomeDirectory() + "/Documents"
+        let fileArray = isFileManager.subpaths(atPath: srcUrl)
+        
+        for fn in fileArray!{
+            
+            
+            try! isFileManager.removeItem(atPath: srcUrl + "/\(fn)")
+            
+        }
         super.tearDown()
     }
     
     func testSearch() {
 
     let app = XCUIApplication()
-        
+
         app.buttons["Tenant"].tap()
         let buttonNumber = app.buttons.count
         let labelNumber = app.staticTexts.count
@@ -126,7 +137,55 @@ class HouserUITests: XCTestCase {
         app.navigationBars["Detail"].buttons["List"].tap()
         XCTAssert(app.navigationBars.staticTexts["List"].exists)
         
+        
+        
+    }
+    
+    func testHome(){
+    
+        let app = XCUIApplication()
+        let appButton = app.buttons.count
+        
+        XCTAssert(appButton == 2)
     
     }
+    
+    func testOwnAndAdd(){
+    
+        let app = XCUIApplication()
+        app.buttons["Landlord"].tap()
+        
+        
+        let appButton = app.buttons.count
+        let appLabel = app.staticTexts.count
+        XCTAssertEqual(appButton, 7)
+        XCTAssertEqual(appLabel, 11)
+        
+        XCTAssert(app.navigationBars.staticTexts["My Property"].exists)
+        app.tables.cells.staticTexts.element(matching: .staticText, identifier: "$400").tap()
+        XCTAssert(app.navigationBars.staticTexts["Detail"].exists)
+        XCTAssert(app.staticTexts["$400"].exists)
+        XCTAssert(app.staticTexts["40 Cootamundra Crescent Blackburn 3130"].exists)
+        app.navigationBars["Detail"].buttons["My Property"].tap()
+        
+        app.navigationBars["My Property"].buttons["Add"].tap()
+        
+        let tablesQuery2 = app.tables
+        tablesQuery2.children(matching: .button).element.tap()
+        app.navigationBars["Photos"].buttons["Cancel"].tap()
+        
+        let tablesQuery = tablesQuery2
+        app.otherElements.containing(.navigationBar, identifier:"Add Property").children(matching: .other).element.children(matching: .other).element.swipeUp()
+        tablesQuery.buttons["Add"].tap()
+        
+        let alertCount = app.alerts.count
+        XCTAssertEqual(alertCount, 1)
+        app.alerts["No Image!"].buttons["OK"].tap()
+        
+    
+    }
+    
+    
+    
     
 }

@@ -38,9 +38,10 @@ class DataModel
         
     }
     
+    
     func reset()
     {
-    
+        
         currentMinPrice = 0
         currentMaxPrice = 2000
         
@@ -53,9 +54,9 @@ class DataModel
         petsAllowed = false
         
         suburbOptions = ["Melbourne Region"]
-
-    
-    
+        
+        
+        
     }
     
     

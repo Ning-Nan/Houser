@@ -1,7 +1,6 @@
 
-//This data model mainly used for the first search page.
-//Functions are used to response the search filter functions
-//datas are inital selection in the search filter screen
+//This data model mainly used for the add page.
+//Functions are used to response the add view functions
 import Foundation
 
 class addDataModel
@@ -318,7 +317,7 @@ class addDataModel
     
     
     
-    
+    //REST API, send address and suburb, get postcode and coordinates
     func json(address : String, suburb : String)
     {
         
@@ -428,28 +427,9 @@ class addDataModel
         task.resume()
         
         
-        
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
     
     
 }

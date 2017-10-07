@@ -37,6 +37,21 @@
                BlueprintName = "HouserUITests"
                ReferencedContainer = "container:Houser.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "TestDataModel">
+               </Test>
+            </SkippedTests>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "042C06691F88DBFA0004A493"
+               BuildableName = "HouserTests.xctest"
+               BlueprintName = "HouserTests"
+               ReferencedContainer = "container:Houser.xcodeproj">
+            </BuildableReference>
          </TestableReference>
       </Testables>
       <MacroExpansion>

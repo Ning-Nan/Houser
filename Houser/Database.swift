@@ -1,6 +1,7 @@
 
 import Foundation
 
+
 protocol DatabaseOperations{
 
     func queryDatabase(operation: String) -> FMResultSet?

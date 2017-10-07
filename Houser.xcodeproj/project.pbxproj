@@ -13,6 +13,7 @@
 		041BF9211F3F1CD700A5DF39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 041BF9201F3F1CD700A5DF39 /* Assets.xcassets */; };
 		041BF9241F3F1CD700A5DF39 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 041BF9221F3F1CD700A5DF39 /* LaunchScreen.storyboard */; };
 		042510511F4BDA7F00D8CB0E /* HouserUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042510501F4BDA7F00D8CB0E /* HouserUITests.swift */; };
+		042C066D1F88DBFA0004A493 /* HouserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042C066C1F88DBFA0004A493 /* HouserTests.swift */; };
 		04371C3D1F440E7700FAC873 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04371C3C1F440E7700FAC873 /* CustomTableViewCell.swift */; };
 		04371C3F1F442AF000FAC873 /* FavouriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04371C3E1F442AF000FAC873 /* FavouriteViewController.swift */; };
 		04371C411F447AA700FAC873 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04371C401F447AA700FAC873 /* DetailViewController.swift */; };
@@ -44,6 +45,13 @@
 			remoteGlobalIDString = 041BF9151F3F1CD700A5DF39;
 			remoteInfo = Houser;
 		};
+		042C066F1F88DBFA0004A493 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 041BF90E1F3F1CD700A5DF39 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 041BF9151F3F1CD700A5DF39;
+			remoteInfo = Houser;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +65,9 @@
 		0425104E1F4BDA7E00D8CB0E /* HouserUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HouserUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		042510501F4BDA7F00D8CB0E /* HouserUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouserUITests.swift; sourceTree = "<group>"; };
 		042510521F4BDA7F00D8CB0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		042C066A1F88DBFA0004A493 /* HouserTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HouserTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		042C066C1F88DBFA0004A493 /* HouserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouserTests.swift; sourceTree = "<group>"; };
+		042C066E1F88DBFA0004A493 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04371C3C1F440E7700FAC873 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		04371C3E1F442AF000FAC873 /* FavouriteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouriteViewController.swift; sourceTree = "<group>"; };
 		04371C401F447AA700FAC873 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +114,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		042C06671F88DBFA0004A493 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -111,6 +129,7 @@
 			children = (
 				041BF9181F3F1CD700A5DF39 /* Houser */,
 				0425104F1F4BDA7F00D8CB0E /* HouserUITests */,
+				042C066B1F88DBFA0004A493 /* HouserTests */,
 				041BF9171F3F1CD700A5DF39 /* Products */,
 				04D504141F70BDC900116823 /* Frameworks */,
 			);
@@ -121,6 +140,7 @@
 			children = (
 				041BF9161F3F1CD700A5DF39 /* Houser.app */,
 				0425104E1F4BDA7E00D8CB0E /* HouserUITests.xctest */,
+				042C066A1F88DBFA0004A493 /* HouserTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -148,6 +168,15 @@
 				042510521F4BDA7F00D8CB0E /* Info.plist */,
 			);
 			path = HouserUITests;
+			sourceTree = "<group>";
+		};
+		042C066B1F88DBFA0004A493 /* HouserTests */ = {
+			isa = PBXGroup;
+			children = (
+				042C066C1F88DBFA0004A493 /* HouserTests.swift */,
+				042C066E1F88DBFA0004A493 /* Info.plist */,
+			);
+			path = HouserTests;
 			sourceTree = "<group>";
 		};
 		04D504141F70BDC900116823 /* Frameworks */ = {
@@ -251,6 +280,24 @@
 			productReference = 0425104E1F4BDA7E00D8CB0E /* HouserUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		042C06691F88DBFA0004A493 /* HouserTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 042C06711F88DBFA0004A493 /* Build configuration list for PBXNativeTarget "HouserTests" */;
+			buildPhases = (
+				042C06661F88DBFA0004A493 /* Sources */,
+				042C06671F88DBFA0004A493 /* Frameworks */,
+				042C06681F88DBFA0004A493 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				042C06701F88DBFA0004A493 /* PBXTargetDependency */,
+			);
+			name = HouserTests;
+			productName = HouserTests;
+			productReference = 042C066A1F88DBFA0004A493 /* HouserTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -272,6 +319,11 @@
 						ProvisioningStyle = Automatic;
 						TestTargetID = 041BF9151F3F1CD700A5DF39;
 					};
+					042C06691F88DBFA0004A493 = {
+						CreatedOnToolsVersion = 8.3.3;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 041BF9151F3F1CD700A5DF39;
+					};
 				};
 			};
 			buildConfigurationList = 041BF9111F3F1CD700A5DF39 /* Build configuration list for PBXProject "Houser" */;
@@ -289,6 +341,7 @@
 			targets = (
 				041BF9151F3F1CD700A5DF39 /* Houser */,
 				0425104D1F4BDA7E00D8CB0E /* HouserUITests */,
+				042C06691F88DBFA0004A493 /* HouserTests */,
 			);
 		};
 /* End PBXProject section */
@@ -307,6 +360,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		0425104C1F4BDA7E00D8CB0E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		042C06681F88DBFA0004A493 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -350,6 +410,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		042C06661F88DBFA0004A493 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				042C066D1F88DBFA0004A493 /* HouserTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -357,6 +425,11 @@
 			isa = PBXTargetDependency;
 			target = 041BF9151F3F1CD700A5DF39 /* Houser */;
 			targetProxy = 042510531F4BDA7F00D8CB0E /* PBXContainerItemProxy */;
+		};
+		042C06701F88DBFA0004A493 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 041BF9151F3F1CD700A5DF39 /* Houser */;
+			targetProxy = 042C066F1F88DBFA0004A493 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -532,6 +605,32 @@
 			};
 			name = Release;
 		};
+		042C06721F88DBFA0004A493 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = HouserTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Iphone10.HouserTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Houser.app/Houser";
+			};
+			name = Debug;
+		};
+		042C06731F88DBFA0004A493 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = HouserTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Iphone10.HouserTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Houser.app/Houser";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -561,6 +660,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		042C06711F88DBFA0004A493 /* Build configuration list for PBXNativeTarget "HouserTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				042C06721F88DBFA0004A493 /* Debug */,
+				042C06731F88DBFA0004A493 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

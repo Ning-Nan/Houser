@@ -211,6 +211,7 @@ class AddTableViewController: UITableViewController, UIImagePickerControllerDele
     }
     
     
+    //prevent the keyboard will cover the textField
     func textFieldDidBeginEditing(_ textField: UITextField)
     {
         
@@ -224,7 +225,8 @@ class AddTableViewController: UITableViewController, UIImagePickerControllerDele
     
 
     
-    //输入框编辑完成以后，将视图恢复到原始状态
+
+    //back to the original size
     func textFieldDidEndEditing( _ textField: UITextField)
     {
         self.view.frame = CGRect(x:0, y:0, width: self.view.frame.size.width,
@@ -246,7 +248,6 @@ class AddTableViewController: UITableViewController, UIImagePickerControllerDele
     override func viewWillAppear(_ animated: Bool) {
         
         Model.model.landlordMode = true
-        addDataModel.adddataModel.reset()
         self.tableView.reloadData()
         
     }
@@ -285,6 +286,7 @@ class AddTableViewController: UITableViewController, UIImagePickerControllerDele
         self.present(alertController, animated: true, completion: nil)
     }
     
+
 
     
     

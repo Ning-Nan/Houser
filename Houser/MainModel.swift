@@ -2,6 +2,7 @@
 import Foundation
 import UIKit
 
+//class for the property.
 class House {
     
     var price : Int
@@ -17,7 +18,7 @@ class House {
     var favourite : Bool
     var xlocation : Double
     var ylocation : Double
-
+    
     init() {
         price = 0
         streetDetail = ""
@@ -32,12 +33,12 @@ class House {
         favourite = false
         xlocation = 0.000000000
         ylocation = 0.000000000
-
+        
     }
     
 }
 
-
+//main operation class, have the functions about the property operations
 class Model {
     
     static let model = Model()
@@ -55,12 +56,13 @@ class Model {
     private init(){}
     
     
+    //load from database to house arrays
     func loadData(){
         
         result.removeAll()
         favourite.removeAll()
         own.removeAll()
-
+        
         
         var query : String = "select * from house"
         query = "select * from (" + query + ") where price <= \(DataModel.dataModel.currentMaxPrice)"
@@ -116,43 +118,43 @@ class Model {
         }
         
         if(DataModel.dataModel.suburb == "Melbourne Region"){
-        
+            
             //do nothing
         }
         else{
-        
-        query = "select * from (" + query + ") where suburb = '\(DataModel.dataModel.suburb)'"
+            
+            query = "select * from (" + query + ") where suburb = '\(DataModel.dataModel.suburb)'"
         }
         if (DataModel.dataModel.petsAllowed == true){
             
             query = "select * from (" + query + ") where pets = 1"
         }
         
-
+        
         query = query + " ORDER BY price"
         let rs = delegate?.queryDatabase(operation: query)
         
         while(rs?.next() == true){
             
             let house = House()
-
+            
             house.bathNo = (rs?.long(forColumn: "bathno"))!
             house.carSpaceNo = (rs?.long(forColumn: "carspace"))!
             house.description = (rs?.string(forColumn: "description"))!
             
             if(rs?.long(forColumn: "pets") == 1){
-            
+                
                 house.petsAllowed = true
             }
             else {
-            
+                
                 house.petsAllowed = false
             }
             
             if(rs?.long(forColumn: "favourite") == 1) {
-            
+                
                 house.favourite = true
-            
+                
             }
             
             house.phoneNo = (rs?.long(forColumn: "phone"))!
@@ -168,7 +170,7 @@ class Model {
         }
         
         let favouriteRs = delegate?.queryDatabase(operation: "Select * from house where favourite = 1")
-               query = query + " ORDER BY price"
+        query = query + " ORDER BY price"
         while(favouriteRs?.next() == true){
             
             let house = House()
@@ -188,7 +190,7 @@ class Model {
             
             
             
-                house.favourite = true
+            house.favourite = true
             
             house.phoneNo = (favouriteRs?.long(forColumn: "phone"))!
             house.postCode = (favouriteRs?.long(forColumn: "postcode"))!
@@ -229,7 +231,7 @@ class Model {
             house.roomNo = (resultRs?.long(forColumn: "roomno"))!
             house.streetDetail = (resultRs?.string(forColumn: "address"))!
             
-          
+            
             house.suburb = (resultRs?.string(forColumn: "suburb"))!
             
             house.xlocation = (resultRs?.double(forColumn: "xlocation"))!
@@ -240,7 +242,7 @@ class Model {
         
         database.close()
         
-
+        
         
         
     }
@@ -250,12 +252,12 @@ class Model {
         
         let query = "update house set favourite = 0 where address = " + "'" + detail + "'"
         if(delegate?.modifyDatabase(operation: query) == false){
-        
+            
             print("remove error!")
         }
-    
-    
-    
+        
+        
+        
     }
     
     func addFavourite(detail : String){
@@ -279,14 +281,15 @@ class Model {
         while (rs?.next() == true){
             
             DataModel.dataModel.suburbOptions.append((rs?.string(forColumn: "suburb"))!)
-        
+            
         }
-    
+        
         database.close()
     }
     
-    func removeHouse(detail: String){
     
+    func removeHouse(detail: String){
+        
         let query = "delete from house where address = " + "'" + detail + "'"
         
         if(delegate?.modifyDatabase(operation: query) == false){
@@ -298,16 +301,18 @@ class Model {
         let homeDirectory = NSHomeDirectory()
         let srcUrl = homeDirectory + "/Documents/" + detail + ".jpg"
         
-                try! fileManager.removeItem(atPath: srcUrl)
+        try! fileManager.removeItem(atPath: srcUrl)
         
         
-    
+        
     }
     
+    
+    //when the application first run on the device, we need to provide the database to documents folder and some init images.
     func firstRun(){
         
         let isFileManager = FileManager.default
-
+        
         let srcUrl = NSHomeDirectory() + "/Documents/" + "houser.db"
         let exist = isFileManager.fileExists(atPath: srcUrl)
         
@@ -316,7 +321,7 @@ class Model {
             let fromUrl = Bundle.main.path(forResource: "houser.db", ofType: nil)
             
             try! isFileManager.copyItem(atPath: fromUrl!, toPath: srcUrl)
-        
+            
             
             database = FMDatabase(path : srcUrl)
             
@@ -335,19 +340,19 @@ class Model {
             
         }
         else{
-        
-        
+            
+            
             database = FMDatabase(path : srcUrl)
             
             databasePro = DatabaseOperation()
             
             loadData()
-        
+            
         }
         
-
-
-    
+        
+        
+        
     }
     
     
@@ -358,15 +363,15 @@ class Model {
         
         var pets : Int
         if(addDataModel.adddataModel.petsAllowed == true){
-        
+            
             pets = 1
-        
+            
         }
         else
         {
-        
+            
             pets = 0
-        
+            
         }
         let query : String = "insert into house (address,suburb,postcode,price,bathno,roomno,carspace,phone,pets,description,favourite,owning,xlocation,ylocation) values ("
             + "'\(address)',"
@@ -383,29 +388,27 @@ class Model {
             + "'1',"
             + "'\(addDataModel.adddataModel.xlocation)',"
             + "'\(addDataModel.adddataModel.ylocation)')"
-
+        
         if(delegate?.modifyDatabase(operation: query) == false){
-        
-        
+            
+            
             print("add failed!")
-        
+            
         }
         let toUrl = imagePath + address + ".jpg"
         let data:Data = UIImageJPEGRepresentation(image, 1.0)!
         try? data.write(to: URL(fileURLWithPath: toUrl))
-
-
-
         
         
-    
-    
-    //insert into house (address,suburb,postcode,price,bathno,roomno,carspace,phone,pets,description,favourite,owning,xlocation,ylocation) values ('',
-    
-    
-    
-    
-    
+        
+        
+        
+        
+        
+        
+        
+        
+        
     }
     
     

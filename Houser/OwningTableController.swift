@@ -1,10 +1,3 @@
-//
-//  OwningTableController.swift
-//  Houser
-//
-//  Created by bekah love u on 2017/10/2.
-//  Copyright © 2017年 Iphone10. All rights reserved.
-//
 
 import UIKit
 
